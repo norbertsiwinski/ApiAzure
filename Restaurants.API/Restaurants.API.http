@@ -1,0 +1,36 @@
+
+@Restaurants.API_HostAddress = https://localhost:7028
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0e00d22d-d7d9-45d4-a521-068849bb9669
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{0e00d22d-d7d9-45d4-a521-068849bb9659}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "Name": "Ta"
+}
+
+
+###
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{0a539df6-e6fa-4ab4-0676-08dcfcf9d2b8}
+Content-Type: application/json
+
+{
+  "Name": "NewName",
+  "Description": "NewDesc",
+  "HasDelivery": false
+}
+
+###
