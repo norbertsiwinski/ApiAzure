@@ -11,7 +11,7 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0e00d22d-d7d9-45d4-a521-0
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/{0e00d22d-d7d9-45d4-a521-068849bb9659}
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{709d04c5-a5e0-4392-b5cf-295b5ce08e45}
 
 ###
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 
 ###
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{0a539df6-e6fa-4ab4-0676-08dcfcf9d2b8}
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{709d04c5-a5e0-4392-b5cf-295b5ce08e45}
 Content-Type: application/json
 
 {
