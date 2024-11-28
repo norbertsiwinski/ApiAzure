@@ -11,7 +11,7 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0e00d22d-d7d9-45d4-a521-0
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/{709d04c5-a5e0-4392-b5cf-295b5ce08e45}
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b56d-4d63-9ba3-f32b7cc1b1ca}
 
 ###
 
@@ -32,5 +32,36 @@ Content-Type: application/json
   "Description": "NewDesc",
   "HasDelivery": false
 }
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b56d-4d63-9ba3-f32b7cc1b1ca}/dishes
+Content-Type: application/json
+
+{
+   "Name": "Sushi",
+   "Description": "Fresh sushi",
+   "Price": 23,
+   "KiloCalories" : 500
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants/{restaurantId}/dishes
+Content-Type: application/json
+
+{
+  //CreateDishCommand
+}
+
+###
+
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b56d-4463-9ba3-f32b7cc1b1ca}/dishes
+
+###
+
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b66d-4d63-9ba3-f32b7cc1b1ca}/dishes
 
 ###
