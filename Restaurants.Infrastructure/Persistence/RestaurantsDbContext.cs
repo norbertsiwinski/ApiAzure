@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Restaurants.Domain.Entities;
 
 namespace Restaurants.Infrastructure.Persistence;
 
-internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> options) : DbContext(options)
+internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> options) : IdentityDbContext<User>(options)
 {
     internal DbSet<Restaurant> Restaurants { get; set; }
     internal DbSet<Dish> Dishes { get; set; }
@@ -19,5 +20,10 @@ internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> optio
             .HasMany(r => r.Dishes)
             .WithOne()
             .HasForeignKey(d => d.RestaurantId);
+
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.OwnedRestaurants)
+            .WithOne(r => r.Owner)
+            .HasForeignKey(r => r.OwnerId);
     }
 }

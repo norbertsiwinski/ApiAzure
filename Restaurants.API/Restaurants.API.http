@@ -1,10 +1,9 @@
 
 @Restaurants.API_HostAddress = https://localhost:7028
+@token = CfDJ8Jm2mHumzxtCpE0mhdzjgp2xUSvXVyiaAwEYkTbDgD8jyuETUgnVgM3yNiT4l7V-GU5QsIWVx2PuxoW0eO-rDQPuuCii4cRgy3WzWA_P7bPtfgy7_XUdr_ltVsir8NuUg0MU9lBsGuqp6dX_ZOUBILjqeztJ88sVJpRcvObulQzNrpW_XL1sMj0F7Sf2V_UO0rXKqFU4KNQ1z29rXqej5u_ZxYIFatglLdLiBAd9xotCN36-uzTlDKGRJMBpbJYo6an5Bmhd6fV57JLLAVv-zDzMLPXOkjAmdbOTyx4mnaxQuWsY3BZk-w0bjQyK9XmoXDWiuHWeiiIW8eEnAm9jlpLMtLngtrbK_ZPWLsvKKpxi7jO4Rxdy7FWqXXTlzfrPyq2VNeVIOvu-iH4eq3vPbS9Z32ZDkdkRLFSJc0KARqRqvlTAmKHQ_EWBn_rv2MeMCobMXk-gfhEAuczi7Ecl1JdJphKJxs35mxmkA4Y6kaKtGTco45x7nBtEb7SyUsJa2E7KEbBpnx4sTFw_4Bx0RQFb8fXUDRW88U7z76ul2SHBQnU37NQ0XfUkp-7fNwAtk6jTGJnSzAHRrSK5hTMBHaGHAz1lNUt7mtq69j8X3KN4fa53AJvBmwkZj5_a75_LQglmudqRfLOwYVVfM6IhlRwq--Z_xElZZWqYZ_5U-L4LCZXeNc0qfq2rmEgYxWLipIbc1s04QrQllFGIrW26H9-yE92Ih2ZOhCPrTeSVN7zDEiW3vkRePUw0xoi2s8Qph8rwhuUQfYuROY8qkmnlmAbrGK_5KyPR_lqu4LyjIlMMTYD4Ym61KBCYeVb1_13AeJiSKx1LOlFwVQANHj_xZNaa8JddVee0GJPlMfkpbhFZAynty5753ftBwgqb3QA-zw
 
-###
-
-GET {{Restaurants.API_HostAddress}}/api/restaurants
-
+GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=&pageSize=5&pageNumber=1&sortBy=Name
+Authorization: Bearer {{token}}
 ###
 
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0e00d22d-d7d9-45d4-a521-068849bb9669
@@ -12,14 +11,19 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0e00d22d-d7d9-45d4-a521-0
 ###
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b56d-4d63-9ba3-f32b7cc1b1ca}
-
+Authorization: Bearer {{token}}
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "Name": "Ta"
+  "Name": "Owner Rest",
+  "Description": "Blabla",
+  "Category": "Italian",
+  "HasDelivery": true,
+  "ContactEmail": "gdfgdf@gmail.com"
 }
 
 
@@ -63,5 +67,30 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b56d-4463-9ba3-
 
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{86b34121-b66d-4d63-9ba3-f32b7cc1b1ca}/dishes
+Authorization: Bearer {{token}}
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+{
+  "email": "owner@test.com",
+  "password": "Password1!"
+}
 
 ###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+{
+  "email": "owner@test.com",
+  "password": "Password1!"
+}
+
+###
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+  "Nationality": "French",
+  "DateOfBirth": "2010-01-01"
+}
